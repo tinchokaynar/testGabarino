@@ -1,0 +1,160 @@
+2020-02-21 20:22:36,575 INFO test.garbarino.martinKaynar.MartinKaynarApplication [main] Starting MartinKaynarApplication on ubuntu with PID 5305 (/home/tinche/Desktop/garbarino/martinKaynar/target/classes started by tinche in /home/tinche/Desktop/garbarino/martinKaynar)
+2020-02-21 20:22:36,577 INFO test.garbarino.martinKaynar.MartinKaynarApplication [main] No active profile set, falling back to default profiles: default
+2020-02-21 20:22:37,590 INFO org.apache.coyote.http11.Http11NioProtocol [main] Initializing ProtocolHandler ["http-nio-8080"]
+2020-02-21 20:22:37,591 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2020-02-21 20:22:37,591 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-02-21 20:22:37,659 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2020-02-21 20:22:37,756 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2020-02-21 20:22:37,831 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2020-02-21 20:22:37,862 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [name: default]
+2020-02-21 20:22:37,902 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.4.10.Final}
+2020-02-21 20:22:37,992 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2020-02-21 20:22:38,059 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2020-02-21 20:22:38,600 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [main] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2020-02-21 20:22:39,149 INFO org.apache.coyote.http11.Http11NioProtocol [main] Starting ProtocolHandler ["http-nio-8080"]
+2020-02-21 20:22:39,167 INFO test.garbarino.martinKaynar.MartinKaynarApplication [main] Started MartinKaynarApplication in 3.043 seconds (JVM running for 3.437)
+2020-02-21 20:22:40,001 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool1] [Thread[cart-processed-pool1,5,main]] Se llamo a payment con el id: 1
+2020-02-21 20:22:40,051 ERROR test.garbarino.martinKaynar.services.impl.CartServiceImpl [cart-processed-pool1] The cart Id:1 is not Ready for payment
+2020-02-21 20:22:50,001 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool1] [Thread[cart-processed-pool1,5,main]] Se llamo a payment con el id: 2
+2020-02-21 20:22:50,011 ERROR test.garbarino.martinKaynar.services.impl.CartServiceImpl [cart-processed-pool1] There is no enough stock for cart Id:2
+2020-02-21 20:23:00,000 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool2] [Thread[cart-processed-pool2,5,main]] Se llamo a payment con el id: 3
+2020-02-21 20:23:00,014 INFO test.garbarino.martinKaynar.services.impl.CartServiceImpl [cart-processed-pool2] The cart Id: 3 was processed
+2020-02-21 20:23:10,001 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool1] [Thread[cart-processed-pool1,5,main]] Se llamo a payment con el id: 2
+2020-02-21 20:23:10,003 ERROR test.garbarino.martinKaynar.services.impl.CartServiceImpl [cart-processed-pool1] The cart Id:2 is not Ready for payment
+2020-02-21 20:23:20,001 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool3] [Thread[cart-processed-pool3,5,main]] Se llamo a payment con el id: 0
+2020-02-21 20:23:20,005 ERROR org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler [cart-processed-pool3] Unexpected error occurred in scheduled task
+test.garbarino.martinKaynar.exceptions.NotFoundException: Cart id not found : 0
+	at test.garbarino.martinKaynar.services.impl.CartServiceImpl.lambda$0(CartServiceImpl.java:50)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:408)
+	at test.garbarino.martinKaynar.services.impl.CartServiceImpl.getCart(CartServiceImpl.java:50)
+	at test.garbarino.martinKaynar.services.impl.CartServiceImpl.payment(CartServiceImpl.java:118)
+	at test.garbarino.martinKaynar.scheduler.ScheduledTasks.payment(ScheduledTasks.java:27)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-02-21 20:23:30,002 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool2] [Thread[cart-processed-pool2,5,main]] Se llamo a payment con el id: 3
+2020-02-21 20:23:30,004 ERROR test.garbarino.martinKaynar.services.impl.CartServiceImpl [cart-processed-pool2] The cart Id:3 is not Ready for payment
+2020-02-21 20:23:40,001 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool4] [Thread[cart-processed-pool4,5,main]] Se llamo a payment con el id: 0
+2020-02-21 20:23:40,004 ERROR org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler [cart-processed-pool4] Unexpected error occurred in scheduled task
+test.garbarino.martinKaynar.exceptions.NotFoundException: Cart id not found : 0
+	at test.garbarino.martinKaynar.services.impl.CartServiceImpl.lambda$0(CartServiceImpl.java:50)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:408)
+	at test.garbarino.martinKaynar.services.impl.CartServiceImpl.getCart(CartServiceImpl.java:50)
+	at test.garbarino.martinKaynar.services.impl.CartServiceImpl.payment(CartServiceImpl.java:118)
+	at test.garbarino.martinKaynar.scheduler.ScheduledTasks.payment(ScheduledTasks.java:27)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-02-21 20:23:50,001 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool1] [Thread[cart-processed-pool1,5,main]] Se llamo a payment con el id: 2
+2020-02-21 20:23:50,003 ERROR test.garbarino.martinKaynar.services.impl.CartServiceImpl [cart-processed-pool1] The cart Id:2 is not Ready for payment
+2020-02-21 20:24:00,001 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool5] [Thread[cart-processed-pool5,5,main]] Se llamo a payment con el id: 0
+2020-02-21 20:24:00,003 ERROR org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler [cart-processed-pool5] Unexpected error occurred in scheduled task
+test.garbarino.martinKaynar.exceptions.NotFoundException: Cart id not found : 0
+	at test.garbarino.martinKaynar.services.impl.CartServiceImpl.lambda$0(CartServiceImpl.java:50)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:408)
+	at test.garbarino.martinKaynar.services.impl.CartServiceImpl.getCart(CartServiceImpl.java:50)
+	at test.garbarino.martinKaynar.services.impl.CartServiceImpl.payment(CartServiceImpl.java:118)
+	at test.garbarino.martinKaynar.scheduler.ScheduledTasks.payment(ScheduledTasks.java:27)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-02-21 20:24:10,001 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool3] [Thread[cart-processed-pool3,5,main]] Se llamo a payment con el id: 1
+2020-02-21 20:24:10,003 ERROR test.garbarino.martinKaynar.services.impl.CartServiceImpl [cart-processed-pool3] The cart Id:1 is not Ready for payment
+2020-02-21 20:24:20,001 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool3] [Thread[cart-processed-pool3,5,main]] Se llamo a payment con el id: 1
+2020-02-21 20:24:20,003 ERROR test.garbarino.martinKaynar.services.impl.CartServiceImpl [cart-processed-pool3] The cart Id:1 is not Ready for payment
+2020-02-21 20:24:30,001 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool3] [Thread[cart-processed-pool3,5,main]] Se llamo a payment con el id: 2
+2020-02-21 20:24:30,007 ERROR test.garbarino.martinKaynar.services.impl.CartServiceImpl [cart-processed-pool3] The cart Id:2 is not Ready for payment
+2020-02-21 20:24:40,000 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool7] [Thread[cart-processed-pool7,5,main]] Se llamo a payment con el id: 2
+2020-02-21 20:24:40,003 ERROR test.garbarino.martinKaynar.services.impl.CartServiceImpl [cart-processed-pool7] The cart Id:2 is not Ready for payment
+2020-02-21 20:24:50,001 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool7] [Thread[cart-processed-pool7,5,main]] Se llamo a payment con el id: 0
+2020-02-21 20:24:50,003 ERROR org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler [cart-processed-pool7] Unexpected error occurred in scheduled task
+test.garbarino.martinKaynar.exceptions.NotFoundException: Cart id not found : 0
+	at test.garbarino.martinKaynar.services.impl.CartServiceImpl.lambda$0(CartServiceImpl.java:50)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:408)
+	at test.garbarino.martinKaynar.services.impl.CartServiceImpl.getCart(CartServiceImpl.java:50)
+	at test.garbarino.martinKaynar.services.impl.CartServiceImpl.payment(CartServiceImpl.java:118)
+	at test.garbarino.martinKaynar.scheduler.ScheduledTasks.payment(ScheduledTasks.java:27)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-02-21 20:25:00,001 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool7] [Thread[cart-processed-pool7,5,main]] Se llamo a payment con el id: 1
+2020-02-21 20:25:00,005 ERROR test.garbarino.martinKaynar.services.impl.CartServiceImpl [cart-processed-pool7] The cart Id:1 is not Ready for payment
+2020-02-21 20:25:10,001 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool1] [Thread[cart-processed-pool1,5,main]] Se llamo a payment con el id: 3
+2020-02-21 20:25:10,004 ERROR test.garbarino.martinKaynar.services.impl.CartServiceImpl [cart-processed-pool1] The cart Id:3 is not Ready for payment
+2020-02-21 20:25:20,000 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool1] [Thread[cart-processed-pool1,5,main]] Se llamo a payment con el id: 2
+2020-02-21 20:25:20,002 ERROR test.garbarino.martinKaynar.services.impl.CartServiceImpl [cart-processed-pool1] The cart Id:2 is not Ready for payment
+2020-02-21 20:25:30,000 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool1] [Thread[cart-processed-pool1,5,main]] Se llamo a payment con el id: 1
+2020-02-21 20:25:30,002 ERROR test.garbarino.martinKaynar.services.impl.CartServiceImpl [cart-processed-pool1] The cart Id:1 is not Ready for payment
+2020-02-21 20:25:40,000 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool1] [Thread[cart-processed-pool1,5,main]] Se llamo a payment con el id: 2
+2020-02-21 20:25:40,002 ERROR test.garbarino.martinKaynar.services.impl.CartServiceImpl [cart-processed-pool1] The cart Id:2 is not Ready for payment
+2020-02-21 20:25:50,000 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool1] [Thread[cart-processed-pool1,5,main]] Se llamo a payment con el id: 1
+2020-02-21 20:25:50,002 ERROR test.garbarino.martinKaynar.services.impl.CartServiceImpl [cart-processed-pool1] The cart Id:1 is not Ready for payment
+2020-02-21 20:26:00,001 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool1] [Thread[cart-processed-pool1,5,main]] Se llamo a payment con el id: 2
+2020-02-21 20:26:00,003 ERROR test.garbarino.martinKaynar.services.impl.CartServiceImpl [cart-processed-pool1] The cart Id:2 is not Ready for payment
+2020-02-21 20:26:10,000 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool1] [Thread[cart-processed-pool1,5,main]] Se llamo a payment con el id: 0
+2020-02-21 20:26:10,002 ERROR org.springframework.scheduling.support.TaskUtils$LoggingErrorHandler [cart-processed-pool1] Unexpected error occurred in scheduled task
+test.garbarino.martinKaynar.exceptions.NotFoundException: Cart id not found : 0
+	at test.garbarino.martinKaynar.services.impl.CartServiceImpl.lambda$0(CartServiceImpl.java:50)
+	at java.base/java.util.Optional.orElseThrow(Optional.java:408)
+	at test.garbarino.martinKaynar.services.impl.CartServiceImpl.getCart(CartServiceImpl.java:50)
+	at test.garbarino.martinKaynar.services.impl.CartServiceImpl.payment(CartServiceImpl.java:118)
+	at test.garbarino.martinKaynar.scheduler.ScheduledTasks.payment(ScheduledTasks.java:27)
+	at jdk.internal.reflect.GeneratedMethodAccessor51.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84)
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54)
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:93)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+2020-02-21 20:26:20,001 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool1] [Thread[cart-processed-pool1,5,main]] Se llamo a payment con el id: 2
+2020-02-21 20:26:20,003 ERROR test.garbarino.martinKaynar.services.impl.CartServiceImpl [cart-processed-pool1] The cart Id:2 is not Ready for payment
+2020-02-21 20:26:30,001 INFO test.garbarino.martinKaynar.scheduler.ScheduledTasks [cart-processed-pool1] [Thread[cart-processed-pool1,5,main]] Se llamo a payment con el id: 3
+2020-02-21 20:26:30,004 ERROR test.garbarino.martinKaynar.services.impl.CartServiceImpl [cart-processed-pool1] The cart Id:3 is not Ready for payment
+2020-02-21 20:26:33,752 INFO org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl [SpringContextShutdownHook] HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2020-02-21 20:26:33,787 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2020-02-21 20:26:33,794 INFO com.zaxxer.hikari.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
